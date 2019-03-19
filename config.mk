@@ -4,11 +4,11 @@ VERSION = ${PORTVERSION}
 # Customize below to fit your system
 
 # paths
-PREFIX = ${PREFIX}
-MANPREFIX = ${MANPREFIX}/share/man
+PREFIX = /usr/local
+MANPREFIX = ${PREFIX}/share/man
 
-X11INC = ${LOCALBASE}/include
-X11LIB = ${LOCALBASE}/lib
+X11INC = ${PREFIX}/include
+X11LIB = ${PREFIX}/lib
 
 PKG_CONFIG = pkg-config
 
