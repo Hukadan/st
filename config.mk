@@ -5,7 +5,7 @@ VERSION = ${PORTVERSION}
 
 # paths
 PREFIX = /usr/local
-MANPREFIX = ${PREFIX}/share/man
+MANPREFIX = ${PREFIX}/man
 
 X11INC = ${PREFIX}/include
 X11LIB = ${PREFIX}/lib
