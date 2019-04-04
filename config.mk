@@ -1,14 +1,14 @@
 # st version
-VERSION = ${PORTVERSION}
+VERSION = 0.8.2
 
 # Customize below to fit your system
 
 # paths
 PREFIX = /usr/local
-MANPREFIX = ${PREFIX}/man
+MANPREFIX = $(PREFIX)/share/man
 
-X11INC = ${PREFIX}/include
-X11LIB = ${PREFIX}/lib
+X11INC = /usr/X11R6/include
+X11LIB = /usr/X11R6/lib
 
 PKG_CONFIG = pkg-config
 
@@ -16,7 +16,7 @@ PKG_CONFIG = pkg-config
 INCS = -I$(X11INC) \
        `$(PKG_CONFIG) --cflags fontconfig` \
        `$(PKG_CONFIG) --cflags freetype2`
-LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft -lXrender\
+LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft \
        `$(PKG_CONFIG) --libs fontconfig` \
        `$(PKG_CONFIG) --libs freetype2`
 
