@@ -87,23 +87,31 @@ float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-        /* solarized dark */
-	"#073642",  /*  0: black    */
-	"#dc322f",  /*  1: red      */
-	"#859900",  /*  2: green    */
-	"#b58900",  /*  3: yellow   */
-	"#268bd2",  /*  4: blue     */
-	"#d33682",  /*  5: magenta  */
-	"#2aa198",  /*  6: cyan     */
-	"#eee8d5",  /*  7: white    */
-	"#002b36",  /*  8: brblack  */
-	"#cb4b16",  /*  9: brred    */
-	"#586e75",  /* 10: brgreen  */
-	"#657b83",  /* 11: bryellow */
-	"#839496",  /* 12: brblue   */
-	"#6c71c4",  /* 13: brmagenta*/
-	"#93a1a1",  /* 14: brcyan   */
-	"#fdf6e3",  /* 15: brwhite  */
+
+	/* 8 normal colors */
+	[0] = "#1c1b19", /* black   */
+	[1] = "#ef2f27", /* red     */
+	[2] = "#519f50", /* green   */
+	[3] = "#fbb829", /* yellow  */
+	[4] = "#2c78bf", /* blue    */
+	[5] = "#e02c6d", /* magenta */
+	[6] = "#0aaeb3", /* cyan    */
+	[7] = "#918175", /* white   */
+
+	/* 8 bright colors */
+	[8]  = "#2D2C29", /* black   */
+	[9]  = "#f75341", /* red     */
+	[10] = "#98bc37", /* green   */
+	[11] = "#fed06e", /* yellow  */
+	[12] = "#68A8E4", /* blue    */
+	[13] = "#ff5c8f", /* magenta */
+	[14] = "#53fde9", /* cyan    */
+	[15] = "#fce8c3", /* white   */
+
+	/* special colors */
+	[256] = "#1c1b19", /* background */
+	[257] = "#fce8c3", /* foreground */
+
 };
 
 
@@ -112,10 +120,18 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 12;
-unsigned int defaultbg = 8;
-static unsigned int defaultcs = 14;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
 static unsigned int defaultrcs = 15;
+
+/*
+ * Colors used, when the specific fg == defaultfg. So in reverse mode this
+ * will reverse too. Another logic would only make the simple feature too
+ * complex.
+ */
+static unsigned int defaultitalic = 7;
+static unsigned int defaultunderline = 7;
 
 /*
  * Default shape of cursor
